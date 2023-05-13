@@ -1,0 +1,44 @@
+<div class="layout-column align-items-center mt-20">
+  <div class="layout-row align-items-center justify-content-center mt-50">
+    <label class="pr-10">Sort By</label>
+    <form>
+      <input
+        (change)="sortPeople()"
+        type="radio"
+        value="name"
+        [(ngModel)]="sort"
+        [ngModelOptions]="{ standalone: true }"
+        data-test-id="name"
+      />
+      <label class="px-4">Name</label>
+      <input
+        type="radio"
+        (change)="sortPeople()"
+        value="age"
+        [(ngModel)]="sort"
+        [ngModelOptions]="{ standalone: true }"
+        data-test-id="age"
+      />
+      <label class="px-4">Age</label>
+    </form>
+  </div>
+
+  <div class="layout-row align-items-center justify-content-center mt-30 w-50">
+    <div class="card w-50 mx-auto mt-20 pb-30">
+      <table>
+        <thead>
+          <tr>
+            <th>Person Name</th>
+            <th>Date of Birth</th>
+          </tr>
+        </thead>
+        <tbody data-test-id="table">
+          <tr *ngFor="let people of peopleList">
+            <td>{{ people.name }}</td>
+            <td>{{ people.birth }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

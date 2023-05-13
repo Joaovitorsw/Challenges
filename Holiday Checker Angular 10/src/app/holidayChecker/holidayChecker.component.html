@@ -1,0 +1,34 @@
+<div class="data layout-column align-items-center mt-50">
+  <section class="layout-row align-items-center justify-content-center">
+    <button (click)="getData()" data-test-id="submit-button">Get Date</button>
+  </section>
+
+  <section
+    class="mt-20 layout-row align-items-center justify-content-center"
+    *ngIf="request"
+  >
+    <div class="card outlined">
+      <div
+        class="card-text pt-10 layout-column align-items-center justify-content-center"
+      >
+        <div class="mt-10 outlined" data-test-id="date">
+          Date: {{ request.date }}
+        </div>
+        <div class="mt-10 outlined" data-test-id="holiday">
+          {{
+            getHolidayObject(request)
+              ? getHolidayObject(request).name
+              : "NOT A HOLIDAY"
+          }}
+        </div>
+        <div
+          *ngIf="getHolidayObject(request)"
+          class="mt-10 outlined"
+          data-test-id="day"
+        >
+          Day: {{ getHolidayObject(request).day }}
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
